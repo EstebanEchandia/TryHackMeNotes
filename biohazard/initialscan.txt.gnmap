@@ -1,0 +1,1 @@
+# Nmap 7.91 scan initiated Wed Aug  4 16:19:57 2021 as: nmap -T4 -p- -oA initialscan.txt 21,22,80 10.10.158.61

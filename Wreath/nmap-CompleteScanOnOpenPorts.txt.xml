@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.91 scan initiated Fri Jul 30 14:11:34 2021 as: nmap -T4 -p-22,80,443,9090,10000 -A -oA nmap-CompleteScanOnOpenPorts.txt 10.200.177.200 -->
+<nmaprun scanner="nmap" args="nmap -T4 -p-22,80,443,9090,10000 -A -oA nmap-CompleteScanOnOpenPorts.txt 10.200.177.200" start="1627668694" startstr="Fri Jul 30 14:11:34 2021" version="7.91" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="26" services="1-22,80,443,9090,10000"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.200.177.200" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>

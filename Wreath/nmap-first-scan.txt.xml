@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.91 scan initiated Fri Jul 30 14:02:51 2021 as: nmap -T4 -p-15000 -oA nmap-first-scan.txt 10.200.177.200 -->
+<nmaprun scanner="nmap" args="nmap -T4 -p-15000 -oA nmap-first-scan.txt 10.200.177.200" start="1627668171" startstr="Fri Jul 30 14:02:51 2021" version="7.91" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="15000" services="1-15000"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.200.177.200" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskprogress task="Connect Scan" time="1627668202" percent="28.13" remaining="80" etc="1627668281"/>
+<host starttime="1627668171" endtime="1627668312"><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.200.177.200" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="14995">
+<extrareasons reason="no-responses" count="14878"/>
+<extrareasons reason="host-unreaches" count="117"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="9090"><state state="closed" reason="conn-refused" reason_ttl="0"/><service name="zeus-admin" method="table" conf="3"/></port>
+<port protocol="tcp" portid="10000"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="snet-sensor-mgmt" method="table" conf="3"/></port>
+</ports>
+<times srtt="241283" rttvar="5317" to="262551"/>
+</host>
+<runstats><finished time="1627668312" timestr="Fri Jul 30 14:05:12 2021" summary="Nmap done at Fri Jul 30 14:05:12 2021; 1 IP address (1 host up) scanned in 140.48 seconds" elapsed="140.48" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

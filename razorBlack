@@ -1,0 +1,431 @@
+root@ip-10-10-73-114:~# nmap -T4 -A 10.10.215.23
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2021-07-17 19:48 BST
+Nmap scan report for ip-10-10-215-23.eu-west-1.compute.internal (10.10.215.23)
+Host is up (0.00041s latency).
+Not shown: 986 closed ports
+PORT     STATE SERVICE       VERSION
+53/tcp   open  domain        Microsoft DNS
+88/tcp   open  kerberos-sec  Microsoft Windows Kerberos (server time: 2021-07-17 18:48:52Z)
+111/tcp  open  rpcbind       2-4 (RPC #100000)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2,3,4        111/tcp  rpcbind
+|   100000  2,3,4        111/udp  rpcbind
+|   100003  2,3         2049/udp  nfs
+|   100003  2,3,4       2049/tcp  nfs
+|   100005  1,2,3       2049/tcp  mountd
+|   100005  1,2,3       2049/udp  mountd
+|   100021  1,2,3,4     2049/tcp  nlockmgr
+|   100021  1,2,3,4     2049/udp  nlockmgr
+|   100024  1           2049/tcp  status
+|_  100024  1           2049/udp  status
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: raz0rblack.thm, Site: Default-First-Site-Name)
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  tcpwrapped
+2049/tcp open  mountd        1-3 (RPC #100005)
+3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: raz0rblack.thm, Site: Default-First-Site-Name)
+3269/tcp open  tcpwrapped
+3389/tcp open  ms-wbt-server Microsoft Terminal Services
+| ssl-cert: Subject: commonName=HAVEN-DC.raz0rblack.thm
+| Not valid before: 2021-02-22T15:02:37
+|_Not valid after:  2021-08-24T15:02:37
+|_ssl-date: 2021-07-17T18:49:50+00:00; 0s from scanner time.
+MAC Address: 02:9B:9B:18:43:B5 (Unknown)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.60%E=4%D=7/17%OT=53%CT=1%CU=36407%PV=Y%DS=1%DC=D%G=Y%M=029B9B%T
+OS:M=60F32661%P=x86_64-pc-linux-gnu)SEQ(SP=100%GCD=1%ISR=10C%TI=I%CI=I%TS=U
+OS:)SEQ(SP=100%GCD=1%ISR=10C%CI=I%TS=U)OPS(O1=M2301NW8NNS%O2=M2301NW8NNS%O3
+OS:=M2301NW8%O4=M2301NW8NNS%O5=M2301NW8NNS%O6=M2301NNS)WIN(W1=FFFF%W2=FFFF%
+OS:W3=FFFF%W4=FFFF%W5=FFFF%W6=FF70)ECN(R=Y%DF=Y%T=80%W=FFFF%O=M2301NW8NNS%C
+OS:C=Y%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A
+OS:=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%D
+OS:F=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O
+OS:=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W
+OS:=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%R
+OS:IPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=80%CD=Z)
+
+Network Distance: 1 hop
+Service Info: Host: HAVEN-DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_nbstat: NetBIOS name: HAVEN-DC, NetBIOS user: <unknown>, NetBIOS MAC: 02:9b:9b:18:43:b5 (unknown)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2021-07-17 19:49:50
+|_  start_date: 1600-12-31 23:58:45
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.41 ms ip-10-10-215-23.eu-west-1.compute.internal (10.10.215.23)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 106.59 seconds
+
+
+
+root@ip-10-10-73-114:~# nmap --script=smb2-security-mode.nse -p445 10.10.215.23
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2021-07-17 19:49 BST
+Nmap scan report for ip-10-10-215-23.eu-west-1.compute.internal (10.10.215.23)
+Host is up (0.00018s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+MAC Address: 02:9B:9B:18:43:B5 (Unknown)
+
+Host script results:
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+
+
+
+
+
+==================================================================================================================================================================
+
+
+
+
+
+
+root@ip-10-10-73-114:~# nmap --script=smb2-security-mode.nse -p445 10.10.215.23
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2021-07-17 19:49 BST
+Nmap scan report for ip-10-10-215-23.eu-west-1.compute.internal (10.10.215.23)
+Host is up (0.00018s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+MAC Address: 02:9B:9B:18:43:B5 (Unknown)
+
+Host script results:
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+
+
+
+
+
+
+==================================================================================================================================================================
+
+
+
+
+
+
+root@ip-10-10-73-114:~# nmap -sC -p 139,445 -sV 10.10.215.23
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2021-07-17 20:05 BST
+Nmap scan report for ip-10-10-215-23.eu-west-1.compute.internal (10.10.215.23)
+Host is up (0.00020s latency).
+
+PORT    STATE SERVICE       VERSION
+139/tcp open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+MAC Address: 02:9B:9B:18:43:B5 (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_nbstat: NetBIOS name: HAVEN-DC, NetBIOS user: <unknown>, NetBIOS MAC: 02:9b:9b:18:43:b5 (unknown)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2021-07-17 20:05:40
+|_  start_date: 1600-12-31 23:58:45
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.11 seconds
+
+
+
+
+
+
+==================================================================================================================================================================
+
+
+
+
+
+
+root@ip-10-10-158-99:~/smbmap# nmap -n -sV --script "ldap* and not brute" -p 389 $ip
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2021-07-18 16:21 BST
+Nmap scan report for 10.10.23.215
+Host is up (0.00019s latency).
+
+PORT    STATE SERVICE VERSION
+389/tcp open  ldap    Microsoft Windows Active Directory LDAP (Domain: raz0rblack.thm, Site: Default-First-Site-Name)
+| ldap-rootdse: 
+| LDAP Results
+|   <ROOT>
+|       domainFunctionality: 7
+|       forestFunctionality: 7
+|       domainControllerFunctionality: 7
+|       rootDomainNamingContext: DC=raz0rblack,DC=thm
+|       ldapServiceName: raz0rblack.thm:haven-dc$@RAZ0RBLACK.THM
+|       isGlobalCatalogReady: TRUE
+|       supportedSASLMechanisms: GSSAPI
+|       supportedSASLMechanisms: GSS-SPNEGO
+|       supportedSASLMechanisms: EXTERNAL
+|       supportedSASLMechanisms: DIGEST-MD5
+|       supportedLDAPVersion: 3
+|       supportedLDAPVersion: 2
+|       supportedLDAPPolicies: MaxPoolThreads
+|       supportedLDAPPolicies: MaxPercentDirSyncRequests
+|       supportedLDAPPolicies: MaxDatagramRecv
+|       supportedLDAPPolicies: MaxReceiveBuffer
+|       supportedLDAPPolicies: InitRecvTimeout
+|       supportedLDAPPolicies: MaxConnections
+|       supportedLDAPPolicies: MaxConnIdleTime
+|       supportedLDAPPolicies: MaxPageSize
+|       supportedLDAPPolicies: MaxBatchReturnMessages
+|       supportedLDAPPolicies: MaxQueryDuration
+|       supportedLDAPPolicies: MaxDirSyncDuration
+|       supportedLDAPPolicies: MaxTempTableSize
+|       supportedLDAPPolicies: MaxResultSetSize
+|       supportedLDAPPolicies: MinResultSets
+|       supportedLDAPPolicies: MaxResultSetsPerConn
+|       supportedLDAPPolicies: MaxNotificationPerConn
+|       supportedLDAPPolicies: MaxValRange
+|       supportedLDAPPolicies: MaxValRangeTransitive
+|       supportedLDAPPolicies: ThreadMemoryLimit
+|       supportedLDAPPolicies: SystemMemoryLimitPercent
+|       supportedControl: 1.2.840.113556.1.4.319
+|       supportedControl: 1.2.840.113556.1.4.801
+|       supportedControl: 1.2.840.113556.1.4.473
+|       supportedControl: 1.2.840.113556.1.4.528
+|       supportedControl: 1.2.840.113556.1.4.417
+|       supportedControl: 1.2.840.113556.1.4.619
+|       supportedControl: 1.2.840.113556.1.4.841
+|       supportedControl: 1.2.840.113556.1.4.529
+|       supportedControl: 1.2.840.113556.1.4.805
+|       supportedControl: 1.2.840.113556.1.4.521
+|       supportedControl: 1.2.840.113556.1.4.970
+|       supportedControl: 1.2.840.113556.1.4.1338
+|       supportedControl: 1.2.840.113556.1.4.474
+|       supportedControl: 1.2.840.113556.1.4.1339
+|       supportedControl: 1.2.840.113556.1.4.1340
+|       supportedControl: 1.2.840.113556.1.4.1413
+|       supportedControl: 2.16.840.1.113730.3.4.9
+|       supportedControl: 2.16.840.1.113730.3.4.10
+|       supportedControl: 1.2.840.113556.1.4.1504
+|       supportedControl: 1.2.840.113556.1.4.1852
+|       supportedControl: 1.2.840.113556.1.4.802
+|       supportedControl: 1.2.840.113556.1.4.1907
+|       supportedControl: 1.2.840.113556.1.4.1948
+|       supportedControl: 1.2.840.113556.1.4.1974
+|       supportedControl: 1.2.840.113556.1.4.1341
+|       supportedControl: 1.2.840.113556.1.4.2026
+|       supportedControl: 1.2.840.113556.1.4.2064
+|       supportedControl: 1.2.840.113556.1.4.2065
+|       supportedControl: 1.2.840.113556.1.4.2066
+|       supportedControl: 1.2.840.113556.1.4.2090
+|       supportedControl: 1.2.840.113556.1.4.2205
+|       supportedControl: 1.2.840.113556.1.4.2204
+|       supportedControl: 1.2.840.113556.1.4.2206
+|       supportedControl: 1.2.840.113556.1.4.2211
+|       supportedControl: 1.2.840.113556.1.4.2239
+|       supportedControl: 1.2.840.113556.1.4.2255
+|       supportedControl: 1.2.840.113556.1.4.2256
+|       supportedControl: 1.2.840.113556.1.4.2309
+|       supportedControl: 1.2.840.113556.1.4.2330
+|       supportedControl: 1.2.840.113556.1.4.2354
+|       supportedCapabilities: 1.2.840.113556.1.4.800
+|       supportedCapabilities: 1.2.840.113556.1.4.1670
+|       supportedCapabilities: 1.2.840.113556.1.4.1791
+|       supportedCapabilities: 1.2.840.113556.1.4.1935
+|       supportedCapabilities: 1.2.840.113556.1.4.2080
+|       supportedCapabilities: 1.2.840.113556.1.4.2237
+|       subschemaSubentry: CN=Aggregate,CN=Schema,CN=Configuration,DC=raz0rblack,DC=thm
+|       serverName: CN=HAVEN-DC,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=raz0rblack,DC=thm
+|       schemaNamingContext: CN=Schema,CN=Configuration,DC=raz0rblack,DC=thm
+|       namingContexts: DC=raz0rblack,DC=thm
+|       namingContexts: CN=Configuration,DC=raz0rblack,DC=thm
+|       namingContexts: CN=Schema,CN=Configuration,DC=raz0rblack,DC=thm
+|       namingContexts: DC=DomainDnsZones,DC=raz0rblack,DC=thm
+|       namingContexts: DC=ForestDnsZones,DC=raz0rblack,DC=thm
+|       isSynchronized: TRUE
+|       highestCommittedUSN: 61471
+|       dsServiceName: CN=NTDS Settings,CN=HAVEN-DC,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=raz0rblack,DC=thm
+|       dnsHostName: HAVEN-DC.raz0rblack.thm
+|       defaultNamingContext: DC=raz0rblack,DC=thm
+|       currentTime: 20210718152138.0Z
+|_      configurationNamingContext: CN=Configuration,DC=raz0rblack,DC=thm
+MAC Address: 02:34:79:E6:13:E7 (Unknown)
+Service Info: Host: HAVEN-DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.38 seconds
+
+
+
+
+
+==================================================================================================================================================================
+
+
+
+
+
+
+	A	B	C	D	E	F	G	H	I	J	K	L
+1	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB
+2	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB
+3	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB
+4	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB	HAVEN SECRET HACKER's CLUB
+5	Name's	Name's	Name's	Role	Role	Role	Role	Role	Role	null	null	null
+6	daven port	daven port	daven port	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	null	null	null
+7	imogen royce	imogen royce	imogen royce	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	null	null	null
+8	tamara vidal	tamara vidal	tamara vidal	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	null	null	null
+9	arthur edwards	arthur edwards	arthur edwards	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	null	null	null
+10	carl ingram	carl ingram	carl ingram	CTF PLAYER (INACTIVE)	CTF PLAYER (INACTIVE)	CTF PLAYER (INACTIVE)	CTF PLAYER (INACTIVE)	CTF PLAYER (INACTIVE)	CTF PLAYER (INACTIVE)	null	null	null
+11	nolan cassidy	nolan cassidy	nolan cassidy	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	null	null	null
+12	reza zaydan	reza zaydan	reza zaydan	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	CTF PLAYER	null	null	null
+13	ljudmila vetrova	ljudmila vetrova	ljudmila vetrova	CTF PLAYER, DEVELOPER,ACTIVE DIRECTORY ADMIN	CTF PLAYER, DEVELOPER,ACTIVE DIRECTORY ADMIN	CTF PLAYER, DEVELOPER,ACTIVE DIRECTORY ADMIN	CTF PLAYER, DEVELOPER,ACTIVE DIRECTORY ADMIN	CTF PLAYER, DEVELOPER,ACTIVE DIRECTORY ADMIN	CTF PLAYER, DEVELOPER,ACTIVE DIRECTORY ADMIN	null	null	null
+14	rico delgado	rico delgado	rico delgado	WEB SPECIALIST	WEB SPECIALIST	WEB SPECIALIST	WEB SPECIALIST	WEB SPECIALIST	WEB SPECIALIST	null	null	null
+15	tyson williams	tyson williams	tyson williams	REVERSE ENGINEERING	REVERSE ENGINEERING	REVERSE ENGINEERING	REVERSE ENGINEERING	REVERSE ENGINEERING	REVERSE ENGINEERING	null	null	null
+16	steven bradley	steven bradley	steven bradley	STEGO SPECIALIST	STEGO SPECIALIST	STEGO SPECIALIST	STEGO SPECIALIST	STEGO SPECIALIST	STEGO SPECIALIST	null	null	null
+17	chamber lin	chamber lin	chamber lin	CTF PLAYER(INACTIVE)	CTF PLAYER(INACTIVE)	CTF PLAYER(INACTIVE)	CTF PLAYER(INACTIVE)	CTF PLAYER(INACTIVE)	CTF PLAYER(INACTIVE)	null	null	null
+
+
+
+
+==================================================================================================================================================================
+
+
+
+root@ip-10-10-73-114:~# enum4linux -A 10.10.187.107
+Unknown option: A
+WARNING: polenum.py is not in your path.  Check that package is installed and your PATH is sane.
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Sat Jul 17 20:50:49 2021
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 10.10.187.107
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ===================================================== 
+|    Enumerating Workgroup/Domain on 10.10.187.107    |
+ ===================================================== 
+[+] Got domain/workgroup name: RAZ0RBLACK
+
+ ============================================= 
+|    Nbtstat Information for 10.10.187.107    |
+ ============================================= 
+Looking up status of 10.10.187.107
+	HAVEN-DC        <00> -         B <ACTIVE>  Workstation Service
+	RAZ0RBLACK      <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+	RAZ0RBLACK      <1c> - <GROUP> B <ACTIVE>  Domain Controllers
+	HAVEN-DC        <20> -         B <ACTIVE>  File Server Service
+	RAZ0RBLACK      <1b> -         B <ACTIVE>  Domain Master Browser
+
+	MAC Address = 02-7E-08-79-01-B3
+
+ ====================================== 
+|    Session Check on 10.10.187.107    |
+ ====================================== 
+[+] Server 10.10.187.107 allows sessions using username '', password ''
+
+ ============================================ 
+|    Getting domain SID for 10.10.187.107    |
+ ============================================ 
+Domain Name: RAZ0RBLACK
+Domain Sid: S-1-5-21-3403444377-2687699443-13012745
+[+] Host is part of a domain (not a workgroup)
+
+ ======================================= 
+|    OS information on 10.10.187.107    |
+ ======================================= 
+Use of uninitialized value $os_info in concatenation (.) or string at /root/Desktop/Tools/Miscellaneous/enum4linux.pl line 464.
+[+] Got OS info for 10.10.187.107 from smbclient: 
+[+] Got OS info for 10.10.187.107 from srvinfo:
+Could not initialise srvsvc. Error was NT_STATUS_ACCESS_DENIED
+
+ ============================== 
+|    Users on 10.10.187.107    |
+ ============================== 
+[E] Couldn't find users using querydispinfo: NT_STATUS_ACCESS_DENIED
+
+[E] Couldn't find users using enumdomusers: NT_STATUS_ACCESS_DENIED
+
+ ========================================== 
+|    Share Enumeration on 10.10.187.107    |
+ ========================================== 
+WARNING: The "syslog" option is deprecated
+smb1cli_req_writev_submit: called for dialect[SMB3_11] server[10.10.187.107]
+
+	Sharename       Type      Comment
+	---------       ----      -------
+Error returning browse list: NT_STATUS_REVISION_MISMATCH
+Reconnecting with SMB1 for workgroup listing.
+Connection to 10.10.187.107 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Failed to connect with SMB1 -- no workgroup available
+
+[+] Attempting to map shares on 10.10.187.107
+
+ ===================================================== 
+|    Password Policy Information for 10.10.187.107    |
+ ===================================================== 
+[E] Dependent program "polenum.py" not present.  Skipping this check.  Download polenum from http://labs.portcullis.co.uk/application/polenum/
+
+
+ =============================== 
+|    Groups on 10.10.187.107    |
+ =============================== 
+
+[+] Getting builtin groups:
+
+[+] Getting builtin group memberships:
+
+[+] Getting local groups:
+
+[+] Getting local group memberships:
+
+[+] Getting domain groups:
+
+[+] Getting domain group memberships:
+
+ ======================================================================== 
+|    Users on 10.10.187.107 via RID cycling (RIDS: 500-550,1000-1050)    |
+ ======================================================================== 
+[E] Couldn't get SID: NT_STATUS_ACCESS_DENIED.  RID cycling not possible.
+
+ ============================================== 
+|    Getting printer info for 10.10.187.107    |
+ ============================================== 
+Could not initialise spoolss. Error was NT_STATUS_ACCESS_DENIED
+
+
+enum4linux complete on Sat Jul 17 20:50:50 2021
+
+
+
+
+
+
+==================================================================================================================================================================
+
+
+
+
+
+
+

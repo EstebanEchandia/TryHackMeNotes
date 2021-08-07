@@ -1,0 +1,45 @@
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://blog.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Timeout:                 10s
+===============================================================
+2021/07/05 19:20:54 Starting gobuster in directory enumeration mode
+===============================================================
+/rss                  (Status: 301) [Size: 0] [--> http://blog.thm/feed/]
+/login                (Status: 302) [Size: 0] [--> http://blog.thm/wp-login.php]
+/0                    (Status: 301) [Size: 0] [--> http://blog.thm/0/]          
+/feed                 (Status: 301) [Size: 0] [--> http://blog.thm/feed/]       
+/atom                 (Status: 301) [Size: 0] [--> http://blog.thm/feed/atom/]  
+/wp-content           (Status: 301) [Size: 309] [--> http://blog.thm/wp-content/]
+/welcome              (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/welcome/]
+/admin                (Status: 302) [Size: 0] [--> http://blog.thm/wp-admin/]          
+/w                    (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/welcome/]
+/n                    (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/note-from-mom/]
+/rss2                 (Status: 301) [Size: 0] [--> http://blog.thm/feed/]                    
+/wp-includes          (Status: 301) [Size: 310] [--> http://blog.thm/wp-includes/]           
+/no                   (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/note-from-mom/]
+/N                    (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/note-from-mom/]
+/W                    (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/welcome/]      
+/rdf                  (Status: 301) [Size: 0] [--> http://blog.thm/feed/rdf/]                
+/page1                (Status: 301) [Size: 0] [--> http://blog.thm/]                         
+/Welcome              (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/welcome/]      
+/'                    (Status: 301) [Size: 0] [--> http://blog.thm/]                         
+/dashboard            (Status: 302) [Size: 0] [--> http://blog.thm/wp-admin/]                
+/note                 (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/note-from-mom/]
+/%20                  (Status: 301) [Size: 0] [--> http://blog.thm/]                         
+/we                   (Status: 301) [Size: 0] [--> http://blog.thm/2020/05/26/welcome/]      
+/2020                 (Status: 301) [Size: 0] [--> http://blog.thm/2020/]                    
+/wp-admin             (Status: 301) [Size: 307] [--> http://blog.thm/wp-admin/]              
+/0000                 (Status: 301) [Size: 0] [--> http://blog.thm/0000/]                    
+
+[!] Keyboard interrupt detected, terminating.
+===============================================================
+2021/07/05 19:53:55 Finished
+===============================================================

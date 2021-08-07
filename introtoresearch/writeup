@@ -1,0 +1,64 @@
+---Google: to manually send a request Burp suite -----------------------------------------------------------------------v
+
+https://portswigger.net/burp/documentation/desktop/tools/repeater/using
+
+***Answer: Repeater
+
+
+---Google: hash windows password ---------------------------------------------------------------------------------
+
+https://ab-lumos.medium.com/introduction-to-hashing-and-how-to-retrieve-windows-10-password-hashes-9c8637decaef
+
+NT hash or NTLM hash
+
+New Technology (NT) LAN Manager hash is the new and more secure way of hashing passwords used by current Windows operating systems. It first encodes the password using UTF-16-LE and then hashes with MD-4 hashing algorithm.
+
+***Answer: NTLM
+
+
+---Google: hash windows password ---------------------------------------------------------------------------------
+
+https://www.linuxtechi.com/schedule-automate-tasks-linux-cron-jobs/
+
+Sometimes, you may have tasks that need to be performed on a regular basis or at certain predefined intervals. Such tasks include backing up databases, updating the system, performing periodic reboots and so on. Such tasks in linux are referred to as cron jobs (Crontab). Cron jobs are used for automation of tasks that come in handy and help in simplifying the execution of repetitive and sometimes mundane tasks. Cron is a daemon that allows you to schedule these jobs which are then carried out at specified intervals. In this tutorial, you will learn how to schedule jobs using cron jobs.
+
+***Answer: cron jobs
+
+
+---Google:  ---------------------------------------------------------------------------------
+
+https://en.wikipedia.org/wiki/Binary_number#Hexadecimal
+
+Binary may be converted to and from hexadecimal more easily. This is because the radix of the hexadecimal system (16) is a power of the radix of the binary system (2). More specifically, 16 = 24, so it takes four digits of binary to represent one digit of hexadecimal.
+
+Hexa -> base16
+
+***Answer: base 16
+
+
+---Google: hashes cheatsheet ---------------------------------------------------------------------------------
+
+https://hashcat.net/wiki/doku.php?id=example_hashes
+
+CTRL + F : $6$
+
+1800 	sha512crypt $6$, SHA512 (Unix) 2 	$6$52450745$k5ka2p8bFuSmoVT1tzOyyuaREkkKBcCNqoDKzYiJL9RaE8yMnPgh2XzzF0NDrUhgrcLwg78xs1w5pJiypEdFX/ 
+
+***Answer: sha512crypt
+
+---Google:  ---------------------------------------------------------------------------------
+
+Link:
+
+Procedure:
+
+***Answer:
+
+
+---Google:  ---------------------------------------------------------------------------------
+
+Link:
+
+Procedure:
+
+***Answer:
